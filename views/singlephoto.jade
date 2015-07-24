@@ -1,0 +1,12 @@
+extends _layout
+
+block content
+  .imgBox
+    img(src="#{link}")
+  .imgCaption
+    p #{author}
+    p #{description}
+  a(href='/gallery/#{id}/edit') Edit
+  form(method='POST' action='/gallery/#{id}')
+    input(type='hidden' name='_method' value='DELETE')
+    button(type=submit) Delete

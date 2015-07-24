@@ -1,0 +1,9 @@
+extends _layout
+
+block content
+    each picture in pictures
+      .imgBox
+        img(src="#{picture.link}")
+      .imgCaption
+        p By #{picture.author}
+        p #{picture.description}

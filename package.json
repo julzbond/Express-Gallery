@@ -1,0 +1,36 @@
+{
+  "name": "Express-Gallery",
+  "version": "1.0.0",
+  "description": "Express Gallery ===============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julzbond/Express-Gallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julzbond/Express-Gallery/issues"
+  },
+  "homepage": "https://github.com/julzbond/Express-Gallery",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "bower": "^1.4.1",
+    "express": "^4.13.1",
+    "foundation": "^4.2.1-1",
+    "gulp": "^3.9.0",
+    "jade": "^1.11.0",
+    "livereload": "^0.3.7",
+    "method-override": "^2.3.4",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
+    "sass": "^0.5.0",
+    "sequelize": "^3.4.1"
+  },
+  "devDependencies": {
+    "faker": "^3.0.0"
+  }
+}
