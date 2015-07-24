@@ -9,11 +9,11 @@ models.sequelize
     //Add Images
     var imageData = [];
     var TOTAL_IMAGES = faker.random.number({min:5, max:10});
-    var categories = ['food', 'nature', 'abstract', 'animals', 'cats'];
+    var categories = ['city', 'nightlife', 'fashion', 'transport'];
     for (var i = 0; i < TOTAL_IMAGES; i++){
       imageData.push({
         author: faker.name.firstName(),
-        link: faker.image.imageUrl(640, 480, faker.random.arrayElement(categories)),
+        link: faker.image.imageUrl(800, 480, faker.random.arrayElement(categories)),
         description: faker.lorem.sentences()
       });
     }

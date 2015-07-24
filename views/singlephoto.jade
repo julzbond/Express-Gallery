@@ -1,12 +1,16 @@
 extends _layout
 
 block content
-  .imgBox
-    img(src="#{link}")
-  .imgCaption
-    p #{author}
+  .singleBox
+    .caption
+      p #{author} - #{link}
+    .clear
+    .singleImage
+      img(src="#{link}")
     p #{description}
-  a(href='/gallery/#{id}/edit') Edit
-  form(method='POST' action='/gallery/#{id}')
-    input(type='hidden' name='_method' value='DELETE')
-    button(type=submit) Delete
+    p Copyright #{link}
+    a(href='/gallery/#{id}/edit' class='button') Edit
+    form(method='POST' action='/gallery/#{id}')
+      input(type='hidden' name='_method' value='DELETE')
+      button(type=submit) Delete
+  .sidebar

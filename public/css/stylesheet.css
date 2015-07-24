@@ -1,0 +1,108 @@
+body {
+ font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ color: #a4a4a5;
+}
+
+#header {
+  width: 72%;
+  margin: 5% auto 15% auto;
+  border-top: dotted 1px gray;
+}
+
+#sitetitle {
+  width: 60%;
+  color: #696469;
+  margin-top: 2%;
+}
+
+h1 {
+  font-size: 6em;
+  letter-spacing: 0.0625em;
+  float: left;
+  margin: 0;
+}
+
+#description {
+  font-size: 1.1em;
+  width: 40%;
+  float: right;
+  border-left: dotted 1px gray;
+  padding-left: 1% ;
+  color: #BCBDC0;
+}
+
+.clear {
+  clear: both;
+}
+
+#container {
+  width: 72%;
+  margin: 0 auto;
+  font-size: 1.5em;
+  margin-bottom: 10%;
+}
+
+.mainphoto {
+  width: 100%;
+  padding: 0 0 3% 0;
+  border-bottom: dotted 1px gray;
+}
+
+.mainphoto img{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gridBox {
+  width: 30%;
+  float: left;
+  padding: 30px 24px 10px 20px;
+  border-bottom: dotted 1px gray;
+  position: relative;
+}
+
+.gridBox a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.gridBox img {
+  width: 100%;
+}
+
+.imgCaption {
+  margin-top: 2em;
+}
+
+.imgCaption p {
+  margin-top: -1em;
+}
+
+.singleBox {
+  width: 60%;
+  float: left;
+}
+
+.singleImage img{
+  width: 100%;
+}
+
+.button {
+  display: block;
+  width: 60px;
+  height: 20px;
+  background: red;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+}
+
+.sidebar {
+  width: 40%;
+  float: right;
+}
