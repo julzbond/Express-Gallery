@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     underscored: true,
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.Gallery.belongsTo(models.User, {foreignKey: 'user_id'});
       }
     }
   });

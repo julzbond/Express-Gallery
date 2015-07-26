@@ -6,6 +6,20 @@ models.sequelize
   .sync({force:true})
 
   .then(function(){
+    //Add Users
+    var userData = [];
+    var TOTAL_USERS = faker.random.number({min:1, max: 10});
+    for(var i=0; i < TOTAL_USERS; i++){
+      userData.push({
+        username: faker.name.firstName(),
+        password: faker.name.lastName()
+      });
+    }
+    return models.User
+      .bulkCreate(userData, { returning: true });
+  })
+
+  .then(function(users){
     //Add Images
     var imageData = [];
     var TOTAL_IMAGES = faker.random.number({min:5, max:10});
@@ -18,5 +32,13 @@ models.sequelize
       });
     }
     return models.Gallery
-      .bulkCreate(imageData, {returning: true});
+      .bulkCreate(imageData, {returning: true})
+
+      .then(function(images){
+        images.forEach(function(image){
+          var user = faker.random.arrayElement(users);
+          user.addGallery(image);
+        });
+        return images;
+      });
   });
