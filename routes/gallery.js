@@ -7,7 +7,12 @@ var Gallery = db.Gallery;
 module.exports = router;
 
 router.use(function(req, res, next){
-  next();
+  if (req.method.toUpperCase() !== "GET") {
+    isAuthenticated(req, res, next);
+  }
+  else {
+    next();
+  }
 });
 
 router.route('/')
@@ -74,21 +79,32 @@ router.route('/:id')
   });
 
 router.route('/:id/edit')
-  .get(function(req, res){
-    var id = req.params.id;
-    Gallery
-      .findOne({
-        where: {'id': id}
-      })
-      .then(function(picture){
-        Gallery
-          .findAll()
-          .then(function(pictures){
-            var sidebarImages = [];
-            for(var i = 0; i < 3; i++){
-              sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
-            }
-            res.render('editphoto', { singleImg: picture,  sidebarImages: sidebarImages});
-          });
-      });
+  .get(
+    isAuthenticated,
+    function(req, res){
+      var id = req.params.id;
+      Gallery
+        .findOne({
+          where: {'id': id}
+        })
+        .then(function(picture){
+          Gallery
+            .findAll()
+            .then(function(pictures){
+              var sidebarImages = [];
+              for(var i = 0; i < 3; i++){
+                sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
+              }
+              res.render('editphoto', { singleImg: picture,  sidebarImages: sidebarImages});
+            });
+        });
   });
+
+function isAuthenticated(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  else {
+    res.redirect('/login');
+  }
+}

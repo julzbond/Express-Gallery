@@ -17,11 +17,16 @@ h1 {
   margin: 0;
 }
 
+
 #header {
   margin: 10em auto 0 auto;
 }
 
-#header .row {
+#signin {
+  text-transform: uppercase;
+}
+
+#header-box {
   margin: 0em auto 5em auto;
   padding-top: 2em;
   border-top: dotted 1px gray;
@@ -88,6 +93,12 @@ h1 {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+button, .button {
+  background: #696469;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 @media only screen and (max-width: 40em) {
