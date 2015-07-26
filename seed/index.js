@@ -22,12 +22,11 @@ models.sequelize
   .then(function(users){
     //Add Images
     var imageData = [];
-    var TOTAL_IMAGES = faker.random.number({min:5, max:10});
-    var categories = ['city', 'nightlife', 'fashion', 'transport'];
-    for (var i = 0; i < TOTAL_IMAGES; i++){
+    var architectureImages = ['http://www.e-architect.co.uk/images/jpgs/london/architecture_foundation_hq_af061207_1.jpg', 'http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/08/Rematerial-Book-Review-2.jpg', 'http://www.designcurial.com/Uploads/NewsArticle/947159/main.jpg', 'http://www.e-architect.co.uk/images/jpgs/poland/warsaw_manfredinicoletti170308_2.jpg', 'http://www.wallpaperhi.com/thumbnails/detail/20111128/valencia-spain-modern-architecture-1024x768.jpg', 'http://kithung.net/wp-content/uploads/2013/12/modern-american-home-architecture-with-stairs.jpg', 'http://images2.fanpop.com/image/photos/9700000/Taj-Mahal-architecture-9735166-800-600.jpg', 'http://artdigitaldesign.com/3d-optical-illusion-popart/12modern-architecture/modern-architecture08.jpg'];
+    for (var i = 0; i < 7; i++){
       imageData.push({
         author: faker.name.firstName(),
-        link: faker.image.imageUrl(800, 480, faker.random.arrayElement(categories)),
+        link: architectureImages[i],
         description: faker.lorem.sentences()
       });
     }

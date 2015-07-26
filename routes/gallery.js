@@ -33,13 +33,16 @@ router.route('/:id')
           res.redirect('/');
         }
         Gallery
-          .findAll()
+          .findAll({
+            where: {
+              'id': {
+                $not: picture.id
+              }
+            },
+            limit: 3
+          })
           .then(function(pictures){
-            var sidebarImages = [];
-            for(var i = 0; i < 3; i++){
-              sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
-            }
-            res.render('singlephoto', { singleImg: picture,  sidebarImages: sidebarImages});
+            res.render('singlephoto', { singleImg: picture,  sidebarImages: pictures});
           });
       });
   })

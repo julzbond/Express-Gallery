@@ -62,6 +62,7 @@ h1 {
 
 .imgCaption p {
   margin-top: -1em;
+  max-width: 100px;
 }
 
 .gridBox li {

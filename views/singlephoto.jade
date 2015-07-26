@@ -2,7 +2,7 @@ extends _layout
 
 block content
   .large-8.medium-12.small-12.columns
-    p.title #{singleImg.author} – #{singleImg.link}
+    p.title #{singleImg.author}
     .single-image(style="background-image: url(#{singleImg.link})")
     .caption
       p #{singleImg.description}
@@ -16,4 +16,4 @@ block content
       a(href='/gallery/#{image.id}')
         .sidebar-image(style="background-image: url(#{image.link})")
         .sidebarCaption
-          p #{image.author} - #{image.link}
+          p #{image.author}

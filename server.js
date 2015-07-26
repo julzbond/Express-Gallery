@@ -3,17 +3,58 @@ var app = express();
 
 var path = require('path');
 var bodyparser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var methodOverride = require('method-override');
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
 
 var CONFIG = require('./config/config.json');
 var db = require ('./models');
 
-app.use(express.static(path.resolve(__dirname, 'public')));
-
 app.set('views', './views');
 app.set('view engine', 'jade');
 
-app.use(bodyparser.urlencoded());
+app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(cookieParser());
+app.use(bodyparser.urlencoded({extended: false}));
+app.use(session({secret: 'keyboard cat'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    db.User
+      .findOne({
+        where: {
+          username: username }
+        })
+      .then(function(user){
+        if(user === null){
+          return done(null, false, { message: 'User not found.'});
+        }
+        if(user.password !== password){
+          return done(null, false, { message: 'Password is incorrect' });
+        }
+        return done(null, user);
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  db.User
+    .findById(id)
+    .then(function(user){
+      done(null, user);
+    });
+});
 
 app.use(methodOverride(function(req, res){
   if(req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -23,12 +64,28 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
+app.get('/login', function(req, res){
+  res.render('login');
+});
+
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect:'/login'
+  })
+);
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 app.get('/', function(req, res){
   db.Gallery
     .findAll()
     .then(function(pictures){
       var mainImg = pictures.shift();
-      res.render('gallery', { mainImg: mainImg, pictures: pictures });
+      res.render('gallery', { user: req.user || null, mainImg: mainImg, pictures: pictures });
     });
 });
 

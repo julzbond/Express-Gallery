@@ -13,6 +13,10 @@ html
           h1 _ARCHITEKT
         #description.large-4.show-for-large-up
           p Welcome to our online portfolio. We are a small group of designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
+          if (!user)
+            a(href="/login").button Login
+          else
+            a(href="/logout").button Logout
     #container
       .row
         block content
