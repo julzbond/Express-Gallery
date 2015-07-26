@@ -44,6 +44,9 @@ router.route('/:id')
                 $not: picture.id
               }
             },
+            order: [
+              [db.Sequelize.fn('RANDOM')]
+            ],
             limit: 3
           })
           .then(function(pictures){
@@ -89,13 +92,19 @@ router.route('/:id/edit')
         })
         .then(function(picture){
           Gallery
-            .findAll()
-            .then(function(pictures){
-              var sidebarImages = [];
-              for(var i = 0; i < 3; i++){
-                sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
+            .findAll({
+            where: {
+              'id': {
+                $not: picture.id
               }
-              res.render('editphoto', { singleImg: picture,  sidebarImages: sidebarImages});
+            },
+            order: [
+              [db.Sequelize.fn('RANDOM')]
+            ],
+            limit: 3
+            })
+            .then(function(pictures){
+              res.render('editphoto', { singleImg: picture,  sidebarImages: pictures});
             });
         });
   });

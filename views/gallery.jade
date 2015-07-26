@@ -4,11 +4,10 @@ block content
     .mainphoto.large-12.medium-12.small-12.columns
       a(href='/gallery/#{mainImg.id}')
         img(src='#{mainImg.link}')
-    .gridBox
-      ul(class='small-block-grid-1 medium-block-grid-2 large-block-grid-3')
-        each picture in pictures
-            li
-              a(href='/gallery/#{picture.id}')
-                img(src="#{picture.link}")
-                .imgCaption
-                  p #{picture.author}
+    .gridBox.large-12.medium-12.small-12.columns
+      each picture in pictures
+          .gridPicture.large-4.medium-6.small-12.columns
+            a(href='/gallery/#{picture.id}')
+              img(src="#{picture.link}")
+              .imgCaption
+                p #{picture.author}

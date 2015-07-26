@@ -20,12 +20,9 @@ h1 {
 #main {
   background: #fff;
   max-width: 80rem;
-  margin: 10em auto 10em auto;
+  margin: 10rem auto 10rem auto;
   padding-top: 2em;
   padding-bottom: 2em;
-}
-
-#header {
 }
 
 #signin {
@@ -54,7 +51,7 @@ h1 {
 }
 
 .mainphoto {
-  padding: 0 0 3em 0;
+  padding: 0em 15px 3em 15px;
   border-bottom: dotted 1px gray;
 }
 
@@ -72,7 +69,11 @@ h1 {
   max-width: 100px;
 }
 
-.gridBox li {
+.gridBox {
+  padding: 0;
+}
+
+.gridPicture {
   margin-top: 2em ;
   border-bottom: dotted 1px gray;
 }
