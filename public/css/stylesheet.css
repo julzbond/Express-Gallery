@@ -1,5 +1,5 @@
 body {
-  background: #fff;
+  background: #fff url('../ecailles.png') repeat;
   color: #a4a4a5;
   cursor: auto;
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -17,9 +17,15 @@ h1 {
   margin: 0;
 }
 
+#main {
+  background: #fff;
+  max-width: 80rem;
+  margin: 10em auto 10em auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
 
 #header {
-  margin: 10em auto 0 auto;
 }
 
 #signin {
@@ -27,8 +33,8 @@ h1 {
 }
 
 #header-box {
-  margin: 0em auto 5em auto;
   padding-top: 2em;
+  padding-bottom: 5em;
   border-top: dotted 1px gray;
 }
 
@@ -45,10 +51,6 @@ h1 {
   padding-top: 1em;
   padding-left: 1em;
   color: #BCBDC0;
-}
-
-#container {
-  margin-bottom: 10em;
 }
 
 .mainphoto {

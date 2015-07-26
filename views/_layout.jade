@@ -7,19 +7,21 @@ html
     link(rel='stylesheet' href='/css/foundation.css')
     link(rel='stylesheet' href='/css/stylesheet.css')
   body
-    #header
-      .row#signin
-        if (!user)
-          a(href="/login").right Login
-        else
-          a(href="/logout").right Logout
-      .row#header-box
-        a(href="/")#sitetitle.large-8.medium-8.small-12.columns
-          h1 _ARCHITEKT
-        #description.large-4.show-for-large-up
-          if(user)
-            p Hi #{user.username}!&nbsp;
-          p Welcome to our online portfolio. We are a small group of designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
-    #container
+    #main
       .row
-        block content
+        #header
+          .row#signin
+            if (!user)
+              a(href="/login").right Login
+            else
+              a(href="/logout").right Logout
+          .row#header-box
+            a(href="/")#sitetitle.large-8.medium-8.small-12.columns
+              h1 _ARCHITEKT
+            #description.large-4.show-for-large-up
+              if(user)
+                p Hi #{user.username}!&nbsp;
+              p Welcome to our online portfolio. We are a small group of designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
+        #container
+          .row
+            block content
