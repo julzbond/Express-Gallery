@@ -39,7 +39,7 @@ router.route('/:id')
             for(var i = 0; i < 3; i++){
               sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
             }
-            res.render('singlephoto', { id: picture.id, author: picture.author, link: picture.link, description: picture.description,  sidebarImages: sidebarImages});
+            res.render('singlephoto', { singleImg: picture,  sidebarImages: sidebarImages});
           });
       });
   })
@@ -78,6 +78,14 @@ router.route('/:id/edit')
         where: {'id': id}
       })
       .then(function(picture){
-        res.render('editphoto', { id: picture.id, author: picture.author, link: picture.link, description: picture.description});
+        Gallery
+          .findAll()
+          .then(function(pictures){
+            var sidebarImages = [];
+            for(var i = 0; i < 3; i++){
+              sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
+            }
+            res.render('editphoto', { singleImg: picture,  sidebarImages: sidebarImages});
+          });
       });
   });

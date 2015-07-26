@@ -57,6 +57,13 @@ html,
 body {
   font-size: 100%; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
+img {
+  -ms-interpolation-mode: bicubic; }
+
 #map_canvas img,
 #map_canvas embed,
 #map_canvas object,
@@ -103,7 +110,7 @@ select {
 
 .row {
   margin: 0 auto;
-  max-width: 62.5rem;
+  max-width: 70rem;
   width: 100%; }
   .row:before, .row:after {
     content: " ";

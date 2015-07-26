@@ -1,21 +1,18 @@
 extends _layout
 
 block content
-  .singleBox.large-8.medium-8.small-12.columns
-    .singleTitle
-      p #{author} – #{link}
-    .singleImage
-      img(src="#{link}")
-    .singleCaption
-      p #{description}
-      p Copyright #{link}
-      a(href='/gallery/#{id}/edit' class='button') Edit
-      form(method='POST' action='/gallery/#{id}')
+  .large-8.medium-8.small-12.columns
+    p.title #{singleImg.author} – #{singleImg.link}
+    .single-image(style="background-image: url(#{singleImg.link})")
+    .caption
+      p #{singleImg.description}
+      p Copyright #{singleImg.link}
+      a(href='/gallery/#{singleImg.id}/edit' class='button') Edit
+      form(method='POST' action='/gallery/#{singleImg.id}')
         input(type='hidden' name='_method' value='DELETE')
         button(type=submit) Delete
-  .sidebar.large-4.medium-4.colums.show-for-medium-up
+  .sidebar.large-4.columns.show-for-large-up
     each image in sidebarImages
-      .sidebarImage
-        img(src="#{image.link}")
-        .sidebarCaption
-          p #{image.author} - #{image.link}
+      .sidebar-image(style="background-image: url(#{image.link})")
+      .sidebarCaption
+        p #{image.author} - #{image.link}

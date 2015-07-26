@@ -1,21 +1,24 @@
 extends _layout
 
 block content
-  .singleBox
-    .singleTitle
-      p #{author} – #{link}
-    .singleImage
-      img(src="#{link}")
-    .singleCaption
-      form(action='/gallery/#{id}' method='POST')
+  .large-8.medium-8.small-12.columns
+    p.title #{singleImg.author} – #{singleImg.link}
+    .single-image(style="background-image: url(#{singleImg.link})")
+    .caption
+      form(action='/gallery/#{singleImg.id}' method='POST')
         p Author
-        input(type='text' name='author' value="#{author}")
+        input(type='text' name='author' value="#{singleImg.author}")
         p Link
-        input(type='text' name='link' value="#{link}")
+        input(type='text' name='link' value="#{singleImg.link}")
         p Description
-        input(type='text' name='description' value="#{description}")
+        input(type='text' name='description' value="#{singleImg.description}")
         p
         input(type='hidden' name='_method' value='PUT')
         button(type='submit' name='submit') Edit
         br
         button(type=submit) Delete
+  .sidebar.large-4.columns.show-for-large-up
+    each image in sidebarImages
+      .sidebar-image(style="background-image: url(#{image.link})")
+      .sidebarCaption
+        p #{image.author} - #{image.link}

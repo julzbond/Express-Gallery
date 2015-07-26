@@ -9,55 +9,37 @@ body {
   margin: 0;
   padding: 0;
 }
+
 h1 {
   font-size: 6em;
   letter-spacing: 0.0625em;
   margin: 0;
 }
 
-a:hover {
-  cursor: pointer; }
-
-img {
-  max-width: 100%;
-  height: auto; }
-
-img {
-  -ms-interpolation-mode: bicubic; }
-
-
 #header {
-  width: 72%;
   margin: 10em auto 0 auto;
-  border-top: dotted 1px gray;
   padding-top: 25px;
 }
 
+#header .row {
+  border-top: dotted 1px gray;
+}
+
 #sitetitle {
-  width: 60%;
   display: inline-block;
   color: #696469;
 }
 
 #description {
   font-size: 1.1em;
-  width: 40%;
   float: right;
   border-left: dotted 1px gray;
   padding-left: 1% ;
   color: #BCBDC0;
 }
 
-#container {
-  width: 1026px;
-  margin: 5em auto;
-  font-size: 1.5em;
-  margin-bottom: 10em;
-}
-
 .mainphoto {
-  width: 100%;
-  padding: 0 0 3% 0;
+  padding: 0 0 3em 0;
   border-bottom: dotted 1px gray;
 }
 
@@ -79,18 +61,23 @@ img {
   border-bottom: dotted 1px gray;
 }
 
-/*.singleBox {
-  width: 60%;
-  float: left;
-}
-
-.singleImage img{
-  width: 100%;
-  margin-bottom: 2em;
+.single-image {
+  width: 625px;
+  height: 390px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .sidebar {
-  width: 40%;
-  float: right;
-  padding: 2em;
-}*/
+  padding: 3em;
+}
+
+.sidebar-image {
+  width: 310px;
+  height: 215px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
