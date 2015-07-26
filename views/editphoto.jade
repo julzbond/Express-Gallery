@@ -1,20 +1,21 @@
 extends _layout
 
 block content
-  .imgBox
-    img(src="#{link}")
-  .imgCaption
-    p #{author}
-    p #{description}
-  form(action='/gallery/#{id}' method='POST')
-    p Author
-    input(type='text' name='author' value="#{author}")
-    br
-    p Link
-    input(type='text' name='link' value="#{link}")
-    br
-    p Description
-    input(type='text' name='description' value="#{description}")
-    p
-    input(type='hidden' name='_method' value='PUT')
-    button(type='submit' name='submit') Edit
+  .singleBox
+    .singleTitle
+      p #{author} – #{link}
+    .singleImage
+      img(src="#{link}")
+    .singleCaption
+      form(action='/gallery/#{id}' method='POST')
+        p Author
+        input(type='text' name='author' value="#{author}")
+        p Link
+        input(type='text' name='link' value="#{link}")
+        p Description
+        input(type='text' name='description' value="#{description}")
+        p
+        input(type='hidden' name='_method' value='PUT')
+        button(type='submit' name='submit') Edit
+        br
+        button(type=submit) Delete

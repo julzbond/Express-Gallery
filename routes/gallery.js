@@ -32,7 +32,15 @@ router.route('/:id')
         if (!picture){
           res.redirect('/');
         }
-        res.render('singlephoto', { id: picture.id, author: picture.author, link: picture.link, description: picture.description});
+        Gallery
+          .findAll()
+          .then(function(pictures){
+            var sidebarImages = [];
+            for(var i = 0; i < 3; i++){
+              sidebarImages.push(pictures[Math.floor(Math.random()*pictures.length)]);
+            }
+            res.render('singlephoto', { id: picture.id, author: picture.author, link: picture.link, description: picture.description,  sidebarImages: sidebarImages});
+          });
       });
   })
   .put(function(req, res){

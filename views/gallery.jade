@@ -1,15 +1,16 @@
 extends _layout
 
 block content
-    - each picture in pictures
-      if picture.id === 1
-        .mainphoto
-          a(href='/gallery/#{picture.id}')
-          img(src="#{picture.link}")
-      else
-        .gridBox
-          a(href='/gallery/#{picture.id}')
-          img(src="#{picture.link}")
-          .imgCaption
-            p #{picture.author}
-            p #{picture.link}
+    .mainphoto
+      a(href='/gallery/#{mainImg.id}')
+        img(src='#{mainImg.link}')
+
+    .gridBox
+      ul(class='small-block-grid-1 medium-block-grid-2 large-block-grid-3')
+        each picture in pictures
+            li
+              a(href='/gallery/#{picture.id}')
+                img(src="#{picture.link}")
+                .imgCaption
+                  p #{picture.author}
+                  p #{picture.link}

@@ -27,7 +27,8 @@ app.get('/', function(req, res){
   db.Gallery
     .findAll()
     .then(function(pictures){
-      res.render('gallery', { pictures: pictures });
+      var mainImg = pictures.shift();
+      res.render('gallery', { mainImg: mainImg, pictures: pictures });
     });
 });
 
