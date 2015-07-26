@@ -1,7 +1,7 @@
 extends _layout
 
 block content
-  .large-8.medium-8.small-12.columns
+  .large-8.medium-12.small-12.columns
     p.title #{singleImg.author} – #{singleImg.link}
     .single-image(style="background-image: url(#{singleImg.link})")
     .caption
@@ -11,8 +11,9 @@ block content
       form(method='POST' action='/gallery/#{singleImg.id}')
         input(type='hidden' name='_method' value='DELETE')
         button(type=submit) Delete
-  .sidebar.large-4.columns.show-for-large-up
+  .sidebar.large-4.columns.show-for-large-up.left
     each image in sidebarImages
-      .sidebar-image(style="background-image: url(#{image.link})")
-      .sidebarCaption
-        p #{image.author} - #{image.link}
+      a(href='/gallery/#{image.id}')
+        .sidebar-image(style="background-image: url(#{image.link})")
+        .sidebarCaption
+          p #{image.author} - #{image.link}

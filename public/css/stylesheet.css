@@ -3,6 +3,7 @@ body {
   color: #a4a4a5;
   cursor: auto;
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -11,31 +12,38 @@ body {
 }
 
 h1 {
-  font-size: 6em;
+  font-size: 5rem;
   letter-spacing: 0.0625em;
   margin: 0;
 }
 
 #header {
   margin: 10em auto 0 auto;
-  padding-top: 25px;
 }
 
 #header .row {
+  margin: 0em auto 5em auto;
+  padding-top: 2em;
   border-top: dotted 1px gray;
 }
 
 #sitetitle {
   display: inline-block;
   color: #696469;
+  padding-top: 0.25em;
 }
 
 #description {
-  font-size: 1.1em;
+  font-size: 1em;
   float: right;
   border-left: dotted 1px gray;
-  padding-left: 1% ;
+  padding-top: 1em;
+  padding-left: 1em;
   color: #BCBDC0;
+}
+
+#container {
+  margin-bottom: 10em;
 }
 
 .mainphoto {
@@ -62,22 +70,28 @@ h1 {
 }
 
 .single-image {
-  width: 625px;
-  height: 390px;
+  width: 715;
+  height: 400px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .sidebar {
-  padding: 3em;
+  padding-top: 2.75em;
 }
 
 .sidebar-image {
-  width: 310px;
+  width: 360px;
   height: 215px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 40em) {
+  .single-image {
+    width: 560px;
+    height: 300px;
+  }
+}

@@ -19,6 +19,7 @@ block content
         button(type=submit) Delete
   .sidebar.large-4.columns.show-for-large-up
     each image in sidebarImages
-      .sidebar-image(style="background-image: url(#{image.link})")
-      .sidebarCaption
-        p #{image.author} - #{image.link}
+      a(href='/gallery/#{image.id}')
+        .sidebar-image(style="background-image: url(#{image.link})")
+        .sidebarCaption
+          p #{image.author} - #{image.link}
